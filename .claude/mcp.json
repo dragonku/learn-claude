@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/dragonku/learn-claude"
+      ],
+      "description": "Filesystem access to learn-claude project directory"
+    }
+  }
+}

@@ -8,5 +8,19 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd comprehensive unit tests for calculate-progress.js\n\nSet up testing infrastructure and convert to ES6 modules:\n\nSetup:\n- Add package.json with test scripts\n- Configure ES6 module system \\(\"type\": \"module\"\\)\n- Add npm test and test:watch scripts\n\nCode changes:\n- Convert calculate-progress.js from CommonJS to ES6 modules\n- Export functions for testing: parseModules, calculatePercentage, getEncouragementMessage\n- Maintain script executability with import.meta.url check\n- Add __dirname polyfill for ES6 modules\n\nTests \\(19 tests across 3 suites\\):\n- parseModules: 5 tests covering parsing logic, edge cases, empty content\n- calculatePercentage: 6 tests covering percentages, null handling, floating point\n- getEncouragementMessage: 8 tests covering all conditions and boundaries\n\nAdditional improvements:\n- Handle floating point precision in tests\n- Test edge cases and boundary values\n- Achieve 100% function coverage for pure functions\n- Update Claude Code permissions for test commands\n\nAll tests passing ✓\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git commit:*)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash(git commit*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node calculate-progress.js",
+            "statusMessage": "학습 진행률 계산 중..."
+          }
+        ]
+      }
+    ]
   }
 }

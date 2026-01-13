@@ -5,8 +5,8 @@
 ## 📋 학습 진행 상황
 
 - [x] Module 1: 기초 설정
-- [ ] Module 2: 핵심 기능
-- [ ] Module 3: 컨텍스트 관리
+- [x] Module 2: 핵심 기능
+- [x] Module 3: 컨텍스트 관리
 - [ ] Module 4: 고급 기능
 - [ ] Module 5: 확장 기능
 - [ ] Module 6: 팀 도입 전략
