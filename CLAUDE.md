@@ -4,7 +4,7 @@
 
 ## 📋 학습 진행 상황
 
-- [ ] Module 1: 기초 설정
+- [x] Module 1: 기초 설정
 - [ ] Module 2: 핵심 기능
 - [ ] Module 3: 컨텍스트 관리
 - [ ] Module 4: 고급 기능
