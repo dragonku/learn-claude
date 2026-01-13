@@ -1,0 +1,13 @@
+{
+  "name": "learn-claude",
+  "version": "1.0.0",
+  "description": "Claude Code learning project with systematic curriculum",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:watch": "node --test --watch"
+  },
+  "keywords": ["claude-code", "learning", "practice"],
+  "author": "dragonku <dragonku@gmail.com>",
+  "license": "MIT"
+}

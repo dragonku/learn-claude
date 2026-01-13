@@ -5,8 +5,12 @@
  * CLAUDE.md 파일을 읽어서 완료된 모듈 수를 계산합니다
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // 상수 정의
 const THRESHOLD_COMPLETE = 100;
@@ -99,5 +103,17 @@ function main() {
     displayProgress(completedModules, totalModules, percentage);
 }
 
-// 실행
-main();
+// 스크립트로 직접 실행될 때만 main 실행
+if (import.meta.url === `file://${process.argv[1]}`) {
+    main();
+}
+
+// Export for testing
+export {
+    parseModules,
+    calculatePercentage,
+    getEncouragementMessage,
+    displayProgress,
+    THRESHOLD_COMPLETE,
+    THRESHOLD_HALF
+};
