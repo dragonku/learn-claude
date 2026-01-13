@@ -9,7 +9,7 @@
 - [x] Module 3: 컨텍스트 관리
 - [x] Module 4: 고급 기능
 - [x] Module 5: 확장 기능
-- [ ] Module 6: 팀 도입 전략
+- [x] Module 6: 팀 도입 전략
 
 ## 🎯 Quick Start
 
