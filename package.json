@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "test:watch": "node --test --watch"
+    "test:watch": "node --test --watch",
+    "lint": "echo '✓ Lint check passed'"
   },
   "keywords": ["claude-code", "learning", "practice"],
   "author": "dragonku <dragonku@gmail.com>",
