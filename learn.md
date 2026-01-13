@@ -4,12 +4,17 @@
 
 ## 목차
 
+### 기본 과정
 - [Module 1: 기초 설정](#module-1-기초-설정)
 - [Module 2: 핵심 기능](#module-2-핵심-기능)
 - [Module 3: 컨텍스트 관리](#module-3-컨텍스트-관리)
 - [Module 4: 고급 기능](#module-4-고급-기능)
 - [Module 5: 확장 기능](#module-5-확장-기능)
 - [Module 6: 팀 도입 전략](#module-6-팀-도입-전략)
+
+### 고급 과정
+- [Module 7: Skills 활용](#module-7-skills-활용)
+- [Module 8: Sub-Agent 아키텍처](#module-8-sub-agent-아키텍처)
 
 ---
 
@@ -592,4 +597,302 @@ Module 6에서 팀 전체가 Claude Code를 효과적으로 도입하는 전략�
 
 ---
 
-**Happy Learning with Claude Code! 🚀**
+# Module 7: Skills 활용
+
+## 1. 학습 목표
+
+- Skills의 개념과 동작 원리를 이해합니다
+- 내장 Skills를 효과적으로 활용하는 방법을 익힙니다
+- 커스텀 Skills를 작성하여 반복 작업을 자동화합니다
+
+## 2. 핵심 개념 설명
+
+### 2.1 Skills란?
+
+Skills는 특정 도메인이나 작업에 특화된 재사용 가능한 에이전트입니다.
+- 전문화된 프롬프트와 도구 조합
+- 일관된 작업 수행
+- 컨텍스트 최적화
+
+### 2.2 Skills 호출
+
+**Skill 도구 사용:**
+```
+"pdf skill을 사용해서 이 문서를 분석해줘"
+"xlsx skill로 스프레드시트를 처리해줘"
+```
+
+**자동 감지:**
+Claude가 작업 유형을 인식하면 자동으로 적절한 Skill을 제안합니다.
+
+### 2.3 내장 Skills 예시
+
+**PDF Skill:**
+- PDF 파일 읽기 및 분석
+- 텍스트 추출 및 구조화
+- 다중 페이지 처리
+
+**XLSX Skill:**
+- 스프레드시트 데이터 분석
+- 차트 및 그래프 해석
+- 데이터 변환 및 정리
+
+**Web Research Skill:**
+- 웹 검색 및 정보 수집
+- 여러 소스 비교 분석
+- 요약 및 정리
+
+### 2.4 커스텀 Skill 작성
+
+**Skill 구조 (.claude/skills/custom-skill/):**
+```
+custom-skill/
+├── skill.json          # Skill 메타데이터
+├── system-prompt.md    # 시스템 프롬프트
+└── tools.json         # 사용 가능한 도구 목록
+```
+
+**skill.json 예시:**
+```json
+{
+  "name": "code-reviewer",
+  "description": "Automated code review with security checks",
+  "version": "1.0.0",
+  "model": "claude-sonnet-4-5",
+  "tools": ["Read", "Grep", "Bash"]
+}
+```
+
+**system-prompt.md 예시:**
+```markdown
+# Code Reviewer Skill
+
+You are an expert code reviewer focusing on:
+1. Code quality and best practices
+2. Security vulnerabilities
+3. Performance optimizations
+4. Test coverage
+
+When reviewing code:
+- Read the file thoroughly
+- Check for common vulnerabilities (XSS, SQL injection, etc.)
+- Suggest specific improvements
+- Provide code examples
+```
+
+## 3. 실습 과제
+
+### 과제 1: 내장 Skill 사용
+PDF 또는 스프레드시트 파일이 있다면 해당 Skill을 사용하여 분석
+
+```
+"pdf skill로 문서를 분석해줘"
+```
+
+### 과제 2: Skill 탐색
+사용 가능한 Skills 목록 확인
+
+```
+"사용 가능한 skills를 알려줘"
+```
+
+### 과제 3: 커스텀 Skill 설계
+자신의 프로젝트에 필요한 Skill 설계 (구조만)
+
+**예시:**
+- Database Migration Skill
+- API Documentation Skill
+- Deployment Checklist Skill
+
+## 4. 체크포인트
+
+### ✅ Checkpoint 1: Skills 이해
+- [ ] Skills의 개념과 일반 에이전트와의 차이를 이해한다
+- [ ] Skills가 어떤 상황에서 유용한지 알고 있다
+- [ ] Skill 도구를 사용하여 작업을 수행할 수 있다
+
+### ✅ Checkpoint 2: 내장 Skills 활용
+- [ ] 최소 1개의 내장 Skill을 사용해봤다
+- [ ] Skill이 자동으로 제안되는 상황을 경험했다
+- [ ] Skill 사용의 이점을 이해한다
+
+### ✅ Checkpoint 3: 커스텀 Skill 설계
+- [ ] 커스텀 Skill의 구조를 이해한다
+- [ ] 자신의 프로젝트에 필요한 Skill을 설계할 수 있다
+- [ ] skill.json과 system-prompt.md의 역할을 안다
+
+## 5. 다음 단계
+
+Module 8에서 Sub-Agent 아키텍처를 통해 복잡한 작업을 여러 에이전트로 분산하는 방법을 학습합니다.
+
+---
+
+# Module 8: Sub-Agent 아키텍처
+
+## 1. 학습 목표
+
+- Sub-Agent의 개념과 사용 사례를 이해합니다
+- Task 도구를 사용하여 전문화된 에이전트를 실행하는 방법을 익힙니다
+- 병렬 처리와 에이전트 간 협업 패턴을 학습합니다
+
+## 2. 핵심 개념 설명
+
+### 2.1 Sub-Agent란?
+
+Sub-Agent는 메인 대화에서 파생된 독립적인 에이전트입니다.
+- 전문화된 작업 수행
+- 독립적인 컨텍스트
+- 백그라운드 실행 가능
+- 메인 에이전트에 결과 반환
+
+### 2.2 사용 가능한 Sub-Agent 타입
+
+**general-purpose:**
+복잡한 다단계 작업, 코드 검색, 리서치
+
+**Explore:**
+코드베이스 탐색, 빠른 파일 검색, 패턴 분석
+
+**Plan:**
+구현 계획 수립, 아키텍처 설계, 트레이드오프 분석
+
+**claude-code-guide:**
+Claude Code 문서 검색, 기능 설명, API 사용법
+
+### 2.3 Task 도구 사용법
+
+**기본 사용:**
+```
+"Task 도구를 사용해서 Explore 에이전트로 코드베이스를 분석해줘"
+```
+
+**백그라운드 실행:**
+```json
+{
+  "subagent_type": "general-purpose",
+  "prompt": "모든 테스트 파일을 찾아서 커버리지를 분석해줘",
+  "run_in_background": true
+}
+```
+
+**결과 조회:**
+```
+"TaskOutput 도구로 백그라운드 작업 결과를 확인해줘"
+```
+
+### 2.4 병렬 처리 패턴
+
+**여러 에이전트 동시 실행:**
+```
+"동시에 다음 작업을 수행해줘:
+1. Explore 에이전트: API 엔드포인트 찾기
+2. general-purpose 에이전트: 테스트 커버리지 분석
+3. Plan 에이전트: 리팩토링 계획 수립"
+```
+
+### 2.5 실전 사용 사례
+
+**대규모 코드베이스 분석:**
+```
+프롬프트: "Explore 에이전트로 이 프로젝트의 아키텍처를 분석해줘"
+- 파일 구조 탐색
+- 주요 컴포넌트 식별
+- 의존성 관계 파악
+```
+
+**복잡한 리팩토링:**
+```
+프롬프트: "Plan 에이전트로 인증 시스템 리팩토링 계획을 세워줘"
+- 현재 구조 분석
+- 개선 방안 제안
+- 단계별 마이그레이션 계획
+```
+
+**문서 검색:**
+```
+프롬프트: "claude-code-guide 에이전트로 MCP 서버 설정 방법을 찾아줘"
+- 공식 문서 검색
+- 예시 코드 제공
+- 베스트 프랙티스 안내
+```
+
+## 3. 실습 과제
+
+### 과제 1: Explore 에이전트 사용
+```
+"Explore 에이전트를 사용해서 현재 프로젝트의 모든 JavaScript 파일을 찾고 주요 함수들을 나열해줘"
+```
+
+### 과제 2: 병렬 에이전트 실행
+```
+"동시에 다음 작업을 수행해줘:
+1. calculate-progress.js 분석
+2. 테스트 파일 분석
+3. 두 파일의 연관성 파악"
+```
+
+### 과제 3: claude-code-guide 에이전트 사용
+```
+"claude-code-guide 에이전트로 Hook의 모든 타입과 사용 예시를 찾아줘"
+```
+
+## 4. 체크포인트
+
+### ✅ Checkpoint 1: Sub-Agent 이해
+- [ ] Sub-Agent의 개념과 메인 에이전트와의 차이를 이해한다
+- [ ] 각 Sub-Agent 타입의 특징과 용도를 알고 있다
+- [ ] Task 도구를 사용하여 에이전트를 실행할 수 있다
+
+### ✅ Checkpoint 2: 병렬 처리
+- [ ] 여러 에이전트를 동시에 실행할 수 있다
+- [ ] 백그라운드 실행과 결과 조회 방법을 안다
+- [ ] 에이전트 간 작업 분배 전략을 이해한다
+
+### ✅ Checkpoint 3: 실전 활용
+- [ ] 실제 프로젝트에서 Sub-Agent를 활용할 수 있다
+- [ ] 적절한 에이전트 타입을 선택할 수 있다
+- [ ] 복잡한 작업을 에이전트로 분산할 수 있다
+
+## 5. 다음 단계
+
+### 🎊 축하합니다! 고급 과정 완료!
+
+**전체 8개 모듈을 완료하셨습니다!**
+
+### 🚀 마스터 레벨 활동
+
+1. **커스텀 Skill 개발**
+   - 프로젝트별 전문 Skill 작성
+   - 팀과 Skill 공유
+   - Skill 마켓플레이스 탐색
+
+2. **에이전트 오케스트레이션**
+   - 복잡한 워크플로우를 여러 Sub-Agent로 분산
+   - 에이전트 간 통신 패턴 설계
+   - 에러 핸들링 및 재시도 로직 구현
+
+3. **프로덕션 적용**
+   - CI/CD 파이프라인에 Claude 통합
+   - 자동화된 코드 리뷰 시스템
+   - 문서 생성 자동화
+
+4. **커뮤니티 기여**
+   - 유용한 Skill 공유
+   - 에이전트 패턴 문서화
+   - 오픈소스 기여
+
+### 💡 고급 학습 자료
+
+**Claude Agent SDK:**
+- [Agent SDK Docs](https://github.com/anthropics/anthropic-sdk-typescript)
+- 커스텀 에이전트 개발
+- 독자적인 에이전트 시스템 구축
+
+**Advanced Patterns:**
+- Multi-agent collaboration
+- Hierarchical agent systems
+- Agent memory and state management
+
+---
+
+**Happy Mastering with Claude Code! 🎓**

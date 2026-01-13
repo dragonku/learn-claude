@@ -4,12 +4,17 @@
 
 ## 📋 학습 진행 상황
 
+### 기본 과정
 - [x] Module 1: 기초 설정
 - [x] Module 2: 핵심 기능
 - [x] Module 3: 컨텍스트 관리
 - [x] Module 4: 고급 기능
 - [x] Module 5: 확장 기능
 - [x] Module 6: 팀 도입 전략
+
+### 고급 과정
+- [ ] Module 7: Skills 활용
+- [ ] Module 8: Sub-Agent 아키텍처
 
 ## 🎯 Quick Start
 

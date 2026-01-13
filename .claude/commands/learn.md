@@ -6,12 +6,19 @@ Claude Code 학습 도우미입니다. 단계별로 Claude Code 사용법을 안
 
 $ARGUMENTS 파라미터로 학습할 모듈을 선택하세요:
 
+### 기본 과정
 - `1` 또는 `basics`: 기초 설정
 - `2` 또는 `core`: 핵심 기능
-- `3` 또는 `context`: 컨텍스트 관리  
+- `3` 또는 `context`: 컨텍스트 관리
 - `4` 또는 `advanced`: 고급 기능
 - `5` 또는 `extend`: 확장 기능
 - `6` 또는 `team`: 팀 도입 전략
+
+### 고급 과정
+- `7` 또는 `skills`: Skills 활용
+- `8` 또는 `subagent`: Sub-Agent 아키텍처
+
+### 기타
 - `quiz`: 이해도 확인 퀴즈
 - `status`: 현재 진행 상황
 
