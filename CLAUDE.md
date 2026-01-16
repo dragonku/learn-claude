@@ -13,7 +13,7 @@
 - [x] Module 6: 팀 도입 전략
 
 ### 고급 과정
-- [ ] Module 7: Skills 활용
+- [x] Module 7: Skills 활용
 - [ ] Module 8: Sub-Agent 아키텍처
 
 ## 🎯 Quick Start
