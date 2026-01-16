@@ -1,0 +1,7 @@
+{
+  "name": "learning-progress-tracker",
+  "description": "Tracks and analyzes learning progress across modules with automated reporting",
+  "version": "1.0.0",
+  "model": "claude-sonnet-4-5",
+  "tools": ["Read", "Grep", "Bash"]
+}

@@ -1,0 +1,40 @@
+{
+  "allowedTools": [
+    {
+      "name": "Read",
+      "description": "Read CLAUDE.md and other learning documentation files"
+    },
+    {
+      "name": "Grep",
+      "description": "Search for checkbox patterns and module status"
+    },
+    {
+      "name": "Bash",
+      "description": "Execute read-only commands like git log and calculate-progress.js",
+      "restrictions": [
+        "Only read-only operations allowed",
+        "No file modifications",
+        "No system-level changes"
+      ]
+    }
+  ],
+  "restrictedTools": [
+    "Write",
+    "Edit",
+    "NotebookEdit"
+  ],
+  "securityPolicy": {
+    "fileAccess": "read-only",
+    "allowedPaths": [
+      "CLAUDE.md",
+      "learn.md",
+      "calculate-progress.js",
+      ".git/"
+    ],
+    "prohibitedOperations": [
+      "file modification",
+      "file deletion",
+      "system configuration changes"
+    ]
+  }
+}
