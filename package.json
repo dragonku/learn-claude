@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node --test",
     "test:watch": "node --test --watch",
-    "lint": "echo '✓ Lint check passed'"
+    "lint": "echo '✓ Lint check passed'",
+    "stats": "node stats.js",
+    "progress": "node calculate-progress.js"
   },
   "keywords": ["claude-code", "learning", "practice"],
   "author": "dragonku <dragonku@gmail.com>",
